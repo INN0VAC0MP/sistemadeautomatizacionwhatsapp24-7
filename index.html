@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cotización — Atención al Cliente 24/7 con IA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--navy:#0a0f1e;
+--blue:#378ADD;
+--white:#ffffff;
+--bg:#f0ede8;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'DM Sans',sans-serif;
+
+background:
+radial-gradient(circle at top left, rgba(55,138,221,0.08), transparent 30%),
+radial-gradient(circle at bottom right, rgba(0,0,0,0.05), transparent 30%),
+var(--bg);
+
+color:#111;
+overflow-x:hidden;
+}
+
+/* ========================= */
+/* NAV */
+/* ========================= */
+
+nav{
+position:sticky;
+top:0;
+z-index:999;
+
+background:rgba(10,15,30,0.96);
+
+backdrop-filter:blur(10px);
+
+padding:18px 40px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-logo{
+font-size:20px;
+font-weight:700;
+color:white;
+font-family:'Playfair Display',serif;
+}
+
+.nav-badge{
+background:rgba(55,138,221,0.15);
+padding:8px 14px;
+border-radius:30px;
+font-size:12px;
+color:#85B7EB;
+}
+
+.nav-validity{
+font-size:12px;
+color:rgba(255,255,255,0.4);
+}
+
+/* ========================= */
+/* PAGE */
+/* ========================= */
+
+.page{
+max-width:1100px;
+margin:auto;
+padding:0 1.5rem 4rem;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+background:#0a0f1e;
+padding:5rem 3rem;
+border-radius:0 0 24px 24px;
+margin-bottom:2rem;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:300px;
+height:300px;
+border-radius:50%;
+background:rgba(55,138,221,0.08);
+top:-100px;
+right:-100px;
+animation:floatOne 8s ease-in-out infinite;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:250px;
+height:250px;
+border-radius:50%;
+background:rgba(255,255,255,0.04);
+bottom:-80px;
+left:-80px;
+animation:floatTwo 10s ease-in-out infinite;
+}
+
+@keyframes floatOne{
+0%{transform:translateY(0px);}
+50%{transform:translateY(20px);}
+100%{transform:translateY(0px);}
+}
+
+@keyframes floatTwo{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0px);}
+}
+
+.hero-badge{
+display:inline-block;
+padding:8px 16px;
+border-radius:30px;
+background:rgba(55,138,221,0.15);
+color:#85B7EB;
+margin-bottom:1.5rem;
+font-size:12px;
+}
+
+.hero h1{
+font-size:60px;
+line-height:1.1;
+color:white;
+font-family:'Playfair Display',serif;
+margin-bottom:1rem;
+max-width:800px;
+}
+
+.hero-sub{
+font-size:18px;
+line-height:1.8;
+color:rgba(255,255,255,0.55);
+max-width:700px;
+margin-bottom:2rem;
+}
+
+.hero-meta{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.hero-meta-item{
+display:flex;
+flex-direction:column;
+gap:5px;
+}
+
+.hero-meta-label{
+font-size:11px;
+text-transform:uppercase;
+color:rgba(255,255,255,0.35);
+}
+
+.hero-meta-value{
+font-size:14px;
+color:white;
+}
+
+/* ========================= */
+/* ALERT */
+/* ========================= */
+
+.alert{
+background:#B5D4F4;
+padding:1.5rem;
+border-radius:16px;
+margin-bottom:2rem;
+line-height:1.8;
+}
+
+/* ========================= */
+/* SECTION LABEL */
+/* ========================= */
+
+.section-label{
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+margin-bottom:1.5rem;
+color:#666;
+}
+
+/* ========================= */
+/* CARDS */
+/* ========================= */
+
+.phases{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-bottom:3rem;
+}
+
+.phase-card{
+background:white;
+padding:1.5rem;
+border-radius:18px;
+display:grid;
+grid-template-columns:60px 1fr;
+gap:20px;
+transition:.35s;
+border:1px solid rgba(0,0,0,0.05);
+}
+
+.phase-card:hover{
+transform:translateY(-8px);
+box-shadow:0 18px 40px rgba(0,0,0,0.08);
+}
+
+.phase-num{
+width:60px;
+height:60px;
+border-radius:50%;
+background:#dcecff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:20px;
+color:#378ADD;
+}
+
+.phase-title{
+font-size:22px;
+font-weight:700;
+margin-bottom:8px;
+}
+
+.phase-sub{
+font-size:15px;
+color:#666;
+margin-bottom:1rem;
+}
+
+.phase-tags{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.tag{
+padding:8px 14px;
+background:#f4f4f4;
+border-radius:30px;
+font-size:12px;
+}
+
+/* ========================= */
+/* PRICING */
+/* ========================= */
+
+.pricing-summary{
+background:#0a0f1e;
+padding:2rem;
+border-radius:24px;
+margin-bottom:3rem;
+color:white;
+}
+
+.pricing-label{
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+margin-bottom:1rem;
+color:rgba(255,255,255,0.4);
+}
+
+.pricing-rows{
+display:flex;
+flex-direction:column;
+gap:14px;
+margin-bottom:2rem;
+}
+
+.pricing-row{
+display:flex;
+justify-content:space-between;
+gap:20px;
+padding-bottom:12px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.pricing-row-val{
+font-weight:700;
+}
+
+.pricing-total{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.pricing-total-amt{
+font-size:44px;
+font-weight:700;
+}
+
+/* ========================= */
+/* MESSAGE BOX */
+/* ========================= */
+
+.custom-message-box{
+background:linear-gradient(135deg,#0a0f1e 0%, #13294b 100%);
+padding:2rem;
+border-radius:24px;
+margin-bottom:3rem;
+}
+
+.custom-message-title{
+font-size:28px;
+font-weight:700;
+color:white;
+margin-bottom:1rem;
+}
+
+.custom-message-sub{
+color:rgba(255,255,255,0.6);
+margin-bottom:1.5rem;
+}
+
+#customMessage{
+width:100%;
+min-height:150px;
+border:none;
+border-radius:18px;
+padding:1rem;
+font-size:15px;
+resize:none;
+background:rgba(255,255,255,0.08);
+color:white;
+margin-bottom:1rem;
+outline:none;
+}
+
+.send-custom-btn{
+background:#25D366;
+border:none;
+padding:15px 26px;
+border-radius:14px;
+font-weight:700;
+font-size:15px;
+cursor:pointer;
+color:white;
+transition:.3s;
+}
+
+.send-custom-btn:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 30px rgba(37,211,102,0.35);
+}
+
+/* ========================= */
+/* CTA */
+/* ========================= */
+
+.cta-final{
+background:linear-gradient(135deg,#0a0f1e 0%, #10203f 100%);
+padding:3rem;
+border-radius:28px;
+text-align:center;
+margin-bottom:2rem;
+}
+
+.cta-title{
+font-size:44px;
+font-family:'Playfair Display',serif;
+color:white;
+margin-bottom:1rem;
+}
+
+.cta-sub{
+color:rgba(255,255,255,0.5);
+margin-bottom:2rem;
+}
+
+.cta-btns{
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-ghost{
+padding:16px 28px;
+border-radius:14px;
+text-decoration:none;
+font-weight:700;
+transition:.35s;
+}
+
+.btn-primary{
+background:#378ADD;
+color:white;
+}
+
+.btn-ghost{
+border:1px solid rgba(255,255,255,0.15);
+color:white;
+}
+
+.btn-primary:hover,
+.btn-ghost:hover{
+transform:translateY(-5px);
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+.footer-note{
+text-align:center;
+font-size:13px;
+color:#777;
+}
+
+/* ========================= */
+/* FLOATING BUTTON */
+/* ========================= */
+
+.floating-whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+background:#25D366;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:30px;
+
+text-decoration:none;
+
+box-shadow:0 12px 30px rgba(37,211,102,0.35);
+
+z-index:999;
+
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+}
+
+/* ========================= */
+/* REVEAL */
+/* ========================= */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0px);
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:768px){
+
+.hero{
+padding:3rem 2rem;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.phase-card{
+grid-template-columns:1fr;
+}
+
+nav{
+padding:15px 20px;
+}
+
+.nav-validity{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="nav-logo">
+AI Support System
+</div>
+
+<div class="nav-badge">
+Cotización Oficial
+</div>
+
+<div class="nav-validity">
+Válida por 15 días
+</div>
+
+</nav>
+
+<div class="page">
+
+<section class="hero reveal">
+
+<div class="hero-badge">
+Automatización Inteligente
+</div>
+
+<h1>
+Sistema de Atención al Cliente 24/7 por WhatsApp con IA
+</h1>
+
+<p class="hero-sub">
+Automatización completa de atención, generación de cotizaciones y seguimiento comercial mediante Inteligencia Artificial integrada con WhatsApp Business.
+</p>
+
+<div class="hero-meta">
+
+<div class="hero-meta-item">
+<span class="hero-meta-label">Tecnología</span>
+<span class="hero-meta-value">GPT-4o + WhatsApp API</span>
+</div>
+
+<div class="hero-meta-item">
+<span class="hero-meta-label">Tiempo estimado</span>
+<span class="hero-meta-value">3-5 semanas</span>
+</div>
+
+<div class="hero-meta-item">
+<span class="hero-meta-label">Modalidad</span>
+<span class="hero-meta-value">Proyecto llave en mano</span>
+</div>
+
+</div>
+
+</section>
+
+<section class="alert reveal">
+
+<strong>
+¿Por qué implementar este sistema?
+</strong>
+
+Automatice ventas, reduzca tiempos de respuesta y atienda clientes 24/7 sin aumentar personal operativo.
+
+</section>
+
+<div class="section-label reveal">
+Funciones principales
+</div>
+
+<div class="phases">
+
+<div class="phase-card reveal">
+
+<div class="phase-num">01</div>
+
+<div>
+
+<div class="phase-title">
+Atención automática 24/7
+</div>
+
+<div class="phase-sub">
+Agente conversacional inteligente integrado con WhatsApp
+</div>
+
+<div class="phase-tags">
+
+<span class="tag">GPT-4o</span>
+<span class="tag">IA Conversacional</span>
+<span class="tag">WhatsApp</span>
+<span class="tag">Automatización</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="phase-card reveal">
+
+<div class="phase-num">02</div>
+
+<div>
+
+<div class="phase-title">
+Cotizaciones automáticas
+</div>
+
+<div class="phase-sub">
+Generación dinámica de cotizaciones según modelos configurados
+</div>
+
+<div class="phase-tags">
+
+<span class="tag">PDF automático</span>
+<span class="tag">Ventas</span>
+<span class="tag">Automatización</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="phase-card reveal">
+
+<div class="phase-num">03</div>
+
+<div>
+
+<div class="phase-title">
+Cronograma de mensajes
+</div>
+
+<div class="phase-sub">
+Programación automática de seguimientos y campañas
+</div>
+
+<div class="phase-tags">
+
+<span class="tag">Recordatorios</span>
+<span class="tag">Campañas</span>
+<span class="tag">n8n</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="phase-card reveal">
+
+<div class="phase-num">04</div>
+
+<div>
+
+<div class="phase-title">
+Clasificación de incidencias
+</div>
+
+<div class="phase-sub">
+Detección automática y categorización inteligente
+</div>
+
+<div class="phase-tags">
+
+<span class="tag">Soporte</span>
+<span class="tag">Tickets</span>
+<span class="tag">IA</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<section class="pricing-summary reveal">
+
+<div class="pricing-label">
+Resumen de inversión
+</div>
+
+<div class="pricing-rows">
+
+<div class="pricing-row">
+<span>Desarrollo backend IA</span>
+<span class="pricing-row-val">Bs. 8.000</span>
+</div>
+
+<div class="pricing-row">
+<span>Integración WhatsApp API</span>
+<span class="pricing-row-val">Bs. 4.500</span>
+</div>
+
+<div class="pricing-row">
+<span>Sistema de cotizaciones</span>
+<span class="pricing-row-val">Bs. 5.000</span>
+</div>
+
+<div class="pricing-row">
+<span>Cronograma de mensajes</span>
+<span class="pricing-row-val">Bs. 3.500</span>
+</div>
+
+<div class="pricing-row">
+<span>Clasificación incidencias</span>
+<span class="pricing-row-val">Bs. 2.500</span>
+</div>
+
+<div class="pricing-row">
+<span>Testing + Implementación</span>
+<span class="pricing-row-val">Bs. 2.500</span>
+</div>
+
+</div>
+
+<div class="pricing-total">
+
+<span>
+Total del proyecto
+</span>
+
+<span class="pricing-total-amt">
+Bs. 26.000
+</span>
+
+</div>
+
+</section>
+
+<div class="custom-message-box reveal">
+
+<div class="custom-message-title">
+📲 Solicitar información
+</div>
+
+<p class="custom-message-sub">
+Escriba un mensaje personalizado para iniciar el proyecto.
+</p>
+
+<textarea
+id="customMessage"
+placeholder="Hola, quiero más información sobre el sistema automatizado de atención al cliente..."
+></textarea>
+
+<button
+class="send-custom-btn"
+onclick="sendWhatsAppMessage()">
+
+Enviar por WhatsApp
+
+</button>
+
+</div>
+
+<section class="cta-final reveal">
+
+<div class="cta-title">
+Automatice su atención hoy
+</div>
+
+<div class="cta-sub">
+Implemente IA y WhatsApp en su empresa
+</div>
+
+<div class="cta-btns">
+
+<a
+class="btn-primary"
+href="https://wa.me/59176393377?text=Hola%20quiero%20iniciar%20el%20proyecto%20de%20atencion%20automatizada"
+target="_blank">
+
+Iniciar proyecto →
+
+</a>
+
+<a
+class="btn-ghost"
+href="https://wa.me/59176393377?text=Hola%20quiero%20confirmar%20la%20cotizacion"
+target="_blank">
+
+Confirmar ahora →
+
+</a>
+
+</div>
+
+</section>
+
+<div class="footer-note">
+
+Cotización preparada a medida · Documento confidencial
+
+</div>
+
+</div>
+
+<a
+class="floating-whatsapp"
+href="https://wa.me/59176393377"
+target="_blank">
+
+💬
+
+</a>
+
+<script>
+
+/* ========================= */
+/* REVEAL EFFECT */
+/* ========================= */
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach((entry)=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('visible');
+
+}
+
+});
+
+},{
+threshold:0.08
+});
+
+document.querySelectorAll('.reveal').forEach((el)=>{
+
+observer.observe(el);
+
+});
+
+/* ========================= */
+/* WHATSAPP MESSAGE */
+/* ========================= */
+
+function sendWhatsAppMessage(){
+
+const message =
+document.getElementById('customMessage').value;
+
+if(!message.trim()){
+
+alert('Por favor escriba un mensaje');
+
+return;
+
+}
+
+const encodedMessage =
+encodeURIComponent(message);
+
+window.open(
+`https://wa.me/59176393377?text=${encodedMessage}`,
+'_blank'
+);
+
+}
+
+</script>
+
+</body>
+
+</html>
